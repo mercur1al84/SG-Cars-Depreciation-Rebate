@@ -3,7 +3,7 @@ from datetime import date, datetime, timedelta
 from dateutil.relativedelta import relativedelta
 import math
 
-st.title("Depreciation & Paper Rebate Calculator")
+st.title("Singapore Cars Depreciation & Rebate Calculator")
 
 vehicle_model = st.text_input("Vehicle Model", placeholder="e.g. Toyota Altis 1.6 Elegance")
 
@@ -11,6 +11,7 @@ handover_date = st.date_input(
     "Handover Date of Car",
     value=date.today(),
     min_value=date(1970, 1, 1),
+    format="DD/MM/YYYY"
 )
 
 current_price = st.number_input("Purchase Price ($)", value=80000)
@@ -20,6 +21,7 @@ reg_date = st.date_input(
     value=date(2020, 1, 1),
     min_value=date(1970, 1, 1),
     max_value=date.today(),
+    format="DD/MM/YYYY"
 )
 
 arf = st.number_input("ARF (Additional Registration Fee) ($)", value=30000)
@@ -34,6 +36,7 @@ if is_renewed:
         value=date(2033, 1, 1),
         min_value=date.today(),
         max_value=date.today() + timedelta(days=365 * 20),
+        format="DD/MM/YYYY"
     )
 else:
     coe_renewal_value = 0
@@ -141,4 +144,8 @@ else:
 st.write(f"**Paper Rebate as at Handover of Vehicle: ${paper_rebate:,}**")
 st.write(f"**Annual Depreciation: ${annual_depreciation:,.2f} / year**")
 
-st.markdown("<p style='text-align: center; color: grey;'>© 2025 Aztute Automotive Pte Ltd</p>", unsafe_allow_html=True)
+st.markdown("""
+<p style='text-align: center; color: grey; margin-bottom: 0;'>© 2025 Aztute Automotive Pte Ltd</p>
+<p style='text-align: center; color: grey; margin-top: 0;'>318 Tanglin Road #01-40, Singapore 247979</p>
+<p style='text-align: center; color: grey; margin-top: 0;'>Tel: (+65) 6723 8145 | Email us at <a href="mailto:enquiries@aztuteauto.com.sg">enquiries@aztuteauto.com.sg</a></p>
+""", unsafe_allow_html=True)
