@@ -11,7 +11,6 @@ handover_date = st.date_input(
     "Handover Date of Car",
     value=date.today(),
     min_value=date(1970, 1, 1),
-    format="DD/MM/YYYY"
 )
 
 current_price = st.number_input("Purchase Price ($)", value=80000)
@@ -21,7 +20,6 @@ reg_date = st.date_input(
     value=date(2020, 1, 1),
     min_value=date(1970, 1, 1),
     max_value=date.today(),
-    format="DD/MM/YYYY"
 )
 
 arf = st.number_input("ARF (Additional Registration Fee) ($)", value=30000)
@@ -36,7 +34,6 @@ if is_renewed:
         value=date(2033, 1, 1),
         min_value=date.today(),
         max_value=date.today() + timedelta(days=365 * 20),
-        format="DD/MM/YYYY"
     )
 else:
     coe_renewal_value = 0
